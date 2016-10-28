@@ -17,3 +17,6 @@ bindkey "^K" next
 
 # C-a is useful
 escape ^zZ
+
+# login shell
+defshell -bash
