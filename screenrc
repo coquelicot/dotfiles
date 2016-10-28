@@ -1,0 +1,19 @@
+# Author: fcrh
+# Email: coquelicot1117@gmail.com
+# Last Modified: 2016/10/28
+
+startup_message off
+
+# session name
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID\.\S\+" | sed "s/^[^.]*\.//"'
+
+# <session name> | <current window>  <other windows>
+caption always
+caption string "%L>%{= kr} %` %{d}| %{=b kY}%n%f %t%{= kc}  %LW%<"
+
+# move between screens
+bindkey "^J" prev
+bindkey "^K" next
+
+# C-a is useful
+escape ^zZ
