@@ -1,8 +1,11 @@
 # Author: fcrh
 # Email: coquelicot1117@gmail.com
-# Last Modified: 2016/10/28
+# Last Modified: 2016/11/3
 
 startup_message off
+
+# more buffer
+defscrollback 1000
 
 # session name
 backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID\.\S\+" | sed "s/^[^.]*\.//"'
