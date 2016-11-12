@@ -1,6 +1,6 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
-" Last Modified: 2016/10/28
+" Last Modified: 2016/11/12
 
 " Basic setting ------------------------------------------------------
 
@@ -57,37 +57,37 @@ set undodir=~/.vim/undo//
 
 " Mapping ------------------------------------------------------------
 
-nmap \s :shell<CR>
-nmap \p :!python<CR>
+nnoremap \s :shell<CR>
+nnoremap \p :!python<CR>
 
 " reselect
-vmap > >gv
-vmap < <gv
+vnoremap > >gv
+vnoremap < <gv
 
-nmap ; :
+nnoremap ; :
 
 " move to next/previous row instead of line
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 
 " https://github.com/peter50216/dotfiles/blob/master/config/vimrc
-imap jk <ESC>
-nmap ^ 0
-nmap 0 ^
-vmap ^ 0
-vmap 0 ^
+inoremap jk <ESC>
+nnoremap ^ 0
+nnoremap 0 ^
+vnoremap ^ 0
+vnoremap 0 ^
 
 
 " Specialization -----------------------------------------------------
 
 " c,cpp
-autocmd FileType c,cpp nmap \r :!./%<<CR>
+autocmd FileType c,cpp nnoremap \r :!./%<<CR>
 autocmd Filetype c,cpp set cin
 autocmd Filetype c,cpp set makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
 
 " script
-autocmd Filetype python,ruby,sh nmap \r :!./%<CR>
+autocmd Filetype python,ruby,sh nnoremap \r :!./%<CR>
 
 " makefile
 autocmd Filetype make set noexpandtab
