@@ -2,6 +2,24 @@
 " Email: coquelicot1117@gmail.com
 " Last Modified: 2016/11/12
 
+" Vundle -------------------------------------------------------------
+
+" Start
+filetype off
+set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-syntastic/syntastic'
+
+" End
+call vundle#end()
+filetype plugin indent on
+
+
 " Basic setting ------------------------------------------------------
 
 syntax on
@@ -60,6 +78,9 @@ set undodir=~/.vim/undo//
 nnoremap \s :shell<CR>
 nnoremap \p :!python<CR>
 
+" NERDTree required
+nnoremap \f :NERDTreeFocus<CR>
+
 " reselect
 vnoremap > >gv
 vnoremap < <gv
@@ -111,3 +132,18 @@ endfunction
 
 call CreateDirs(&backupdir)
 call CreateDirs(&undodir)
+
+
+" Syntastic required -------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" eslint required
+let g:syntastic_javascript_checkers = ['eslint']
