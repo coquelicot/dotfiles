@@ -1,6 +1,6 @@
 # Author: fcrh
 # Email: coquelicot1117@gmail.com
-# Last Modified: 2016/10/28
+# Last Modified: 2016/11/12
 
 # settings {{{
 # emacs style, not vi
@@ -78,11 +78,12 @@ function pd {
 
 export PROMPT_COMMAND=__generate_prompt
 
-PTCLR_HOST="31m"
-PTCLR_USER="35m"
-PTCLR_PATH="36m"
+PTCLR_HOST="0;31m"
+PTCLR_USER="0;35m"
+PTCLR_PATH="0;36m"
+PTCLR_GIT="0;33m"
 PTCLR_FAIL="1;31m"
-PTCLR_GIT="33m"
+PTCRL_VIM="0;32m"
 
 __generate_prompt() {
 
@@ -98,7 +99,11 @@ __generate_prompt() {
         PS1+=" \[\e[${PTCLR_FAIL}\](${ret_code})";
     fi
 
-    PS1+="\[\e[m\] \\$ "
+    if [[ $VIM != "" ]]; then
+        PS1+=" \[\e[${PTCRL_VIM}\]vi\\$\[\e[m\] ";
+    else
+        PS1+="\[\e[m\] \\$ ";
+    fi
 
 }
 
