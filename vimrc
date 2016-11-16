@@ -1,6 +1,6 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
-" Last Modified: 2016/11/12
+" Last Modified: 2016/11/16
 
 " Vundle -------------------------------------------------------------
 
@@ -40,6 +40,8 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+set scrolloff=5
+
 set hlsearch
 set incsearch
 set ignorecase
@@ -47,7 +49,6 @@ set smartcase
 
 set autoindent
 set copyindent
-set smartindent
 
 set foldmarker={{{,}}}
 set foldmethod=marker
@@ -65,6 +66,8 @@ set confirm
 set backup
 set undofile
 
+set lazyredraw
+
 " For Unix and Win32, if a directory ends in two path separators "//" or "\\", 
 " the swap file name will be built from the complete path to the file with all
 " path separators substituted to percent '%' signs. This will ensure file name
@@ -80,6 +83,9 @@ nnoremap \p :!python<CR>
 
 " NERDTree required
 nnoremap \f :NERDTreeFocus<CR>
+
+" get rid of highlight search
+nnoremap \\ :nohlsearch<CR>
 
 " reselect
 vnoremap > >gv
