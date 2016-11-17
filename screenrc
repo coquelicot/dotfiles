@@ -1,6 +1,6 @@
 # Author: fcrh
 # Email: coquelicot1117@gmail.com
-# Last Modified: 2016/11/3
+# Last Modified: 2016/11/17
 
 startup_message off
 
@@ -15,8 +15,8 @@ caption always
 caption string "%L>%{= kr} %` %{d}| %{=b kY}%n%f %t%{= kc}  %LW%<"
 
 # move between screens
-bindkey "^J" prev
-bindkey "^K" next
+bindkey "^J" next
+bindkey "^K" prev
 
 # C-a is useful
 escape ^zZ
