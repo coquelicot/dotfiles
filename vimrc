@@ -65,6 +65,7 @@ set confirm
 
 set backup
 set undofile
+set backupcopy=yes
 
 set lazyredraw
 
@@ -120,9 +121,9 @@ autocmd Filetype python,ruby,sh nnoremap \r :!./%<CR>
 autocmd Filetype make set noexpandtab
 
 " html,css,js
-autocmd Filetype html,css,javascript set shiftwidth=2
-autocmd Filetype html,css,javascript set tabstop=2
-autocmd Filetype html,css,javascript set softtabstop=2
+autocmd Filetype htmldjango,html,css,javascript set shiftwidth=2
+autocmd Filetype htmldjango,html,css,javascript set tabstop=2
+autocmd Filetype htmldjango,html,css,javascript set softtabstop=2
 
 
 " Setup backup/undo dir ----------------------------------------------
