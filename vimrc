@@ -1,6 +1,6 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
-" Last Modified: 2016/11/16
+" Last Modified: 2017/03/17
 
 " Vundle -------------------------------------------------------------
 
@@ -154,3 +154,18 @@ let g:syntastic_check_on_wq = 0
 
 " eslint required
 let g:syntastic_javascript_checkers = ['eslint']
+
+
+" Load local config --------------------------------------------------
+
+function ReadRCOnPath(target_path)
+    let current_path = ''
+    for dir in split(a:target_path, '/')
+        let current_path = current_path . '/' . dir
+        let file = current_path . '/' . '.vimrc.local'
+        if filereadable(file) && empty(matchstr(getfperm(file), '^r.-.--.--$')) == 0
+            execute 'source ' . file
+        endif
+    endfor
+endfunction
+call ReadRCOnPath(getcwd())
