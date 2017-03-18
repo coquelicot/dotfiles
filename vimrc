@@ -1,6 +1,6 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
-" Last Modified: 2017/03/17
+" Last Modified: 2017/03/18
 
 " Vundle -------------------------------------------------------------
 
@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'majutsushi/tagbar'
 
 " End
 call vundle#end()
@@ -84,6 +85,9 @@ nnoremap \p :!python<CR>
 
 " NERDTree required
 nnoremap \f :NERDTreeFocus<CR>
+
+" Tagbar required
+nnoremap \t :TagbarToggle<CR>
 
 " get rid of highlight search
 nnoremap \\ :nohlsearch<CR>
