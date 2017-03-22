@@ -98,7 +98,7 @@ __generate_prompt() {
         PS1+=" \[\e[${PTCLR_FAIL}\](${ret_code})";
     fi
 
-    if [[ $VIM != "" ]]; then
+    if [[ $IN_VIM == "yes" ]]; then
         PS1+=" \[\e[${PTCRL_VIM}\]vi\\$\[\e[m\] ";
     else
         PS1+="\[\e[m\] \\$ ";

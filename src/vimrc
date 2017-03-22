@@ -1,6 +1,10 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
 
+" In vim env
+let $IN_VIM = 'yes'
+
+
 " Vundle -------------------------------------------------------------
 
 " Start
