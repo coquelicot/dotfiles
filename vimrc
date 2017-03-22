@@ -174,7 +174,7 @@ function ReadRCOnPath(target_path)
     for dir in split(a:target_path, '/')
         let current_path = current_path . '/' . dir
         let file = current_path . '/' . '.vimrc.local'
-        if filereadable(file) && empty(matchstr(getfperm(file), '^r.-.--.--$')) == 0
+        if filereadable(file) && empty(matchstr(getfperm(file), '^r.-------$')) == 0
             execute 'source ' . file
         endif
     endfor
