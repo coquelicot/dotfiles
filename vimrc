@@ -1,6 +1,6 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
-" Last Modified: 2017/03/18
+" Last Modified: 2017/03/22
 
 " Vundle -------------------------------------------------------------
 
@@ -101,6 +101,13 @@ nnoremap ; :
 " move to next/previous row instead of line
 nnoremap j gj
 nnoremap k gk
+
+" tab helper
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprev<CR>
+
+" clear screen
+nnoremap \l :redraw!<CR>
 
 
 " https://github.com/peter50216/dotfiles/blob/master/config/vimrc
