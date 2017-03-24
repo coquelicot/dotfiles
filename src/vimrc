@@ -85,6 +85,7 @@ set undodir=~/.vim/undo//
 
 nnoremap \s :shell<CR>
 nnoremap \p :!python<CR>
+nnoremap \r :!./%<CR>
 
 " NERDTree required
 nnoremap \f :NERDTreeFocus<CR>
@@ -127,9 +128,6 @@ vnoremap 0 ^
 autocmd FileType c,cpp nnoremap \r :!./%<<CR>
 autocmd Filetype c,cpp set cin
 autocmd Filetype c,cpp set makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
-
-" script
-autocmd Filetype python,ruby,sh nnoremap \r :!./%<CR>
 
 " makefile
 autocmd Filetype make set noexpandtab
