@@ -2,7 +2,7 @@
 # Email: coquelicot1117@gmail.com
 
 [push]
-	default = simple
+	default = upstream
 [core]
 	trustctime = false
 	editor = vim
