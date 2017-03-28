@@ -79,6 +79,7 @@ set lazyredraw
 " uniqueness in the preserve directory.
 set backupdir=~/.vim/backup//
 set undodir=~/.vim/undo//
+set dir=~/.vim/swp//
 
 
 " Mapping ------------------------------------------------------------
@@ -142,15 +143,17 @@ autocmd Filetype htmldjango,html,css,javascript set softtabstop=2
 
 function CreateDirs(dirs)
     for dir in split(a:dirs, ',')
-        if isdirectory(dir) == 0
-            echo "Creating dir: " . dir
-            call mkdir(dir, 'p')
+        let cleaned_dir = substitute(dir, '/*$', '', '')
+        if isdirectory(cleaned_dir) == 0
+            echo "Creating dir: " . cleaned_dir
+            call mkdir(cleaned_dir, 'p')
         endif
     endfor
 endfunction
 
 call CreateDirs(&backupdir)
 call CreateDirs(&undodir)
+call CreateDirs(&directory)
 
 
 " Syntastic required -------------------------------------------------
