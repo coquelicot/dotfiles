@@ -22,6 +22,7 @@
 [alias]
 	last = log -1 --stat
 	cp = cherry-pick
+	cb = checkout -b
 	co = checkout
 	cl = clone
 	ci = commit
