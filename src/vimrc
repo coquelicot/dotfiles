@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
 
 " End
 call vundle#end()
