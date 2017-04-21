@@ -109,6 +109,4 @@ __generate_prompt() {
 
 # machine specific rc
 
-if [ -f "$HOME/.bashrc.local" ]; then
-    source $HOME/.bashrc.local
-fi
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local";
