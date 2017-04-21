@@ -19,6 +19,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " End
 call vundle#end()
@@ -108,9 +109,10 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
-" tab helper
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprev<CR>
+" buffer helper
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-d> :bd<CR>
 
 " clear screen
 nnoremap \l :redraw!<CR>
