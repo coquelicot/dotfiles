@@ -20,6 +20,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ap/vim-buftabline'
 
 " End
 call vundle#end()
@@ -95,6 +96,9 @@ nnoremap \f :NERDTreeFocus<CR>
 
 " Tagbar required
 nnoremap \t :TagbarToggle<CR>
+
+" CtrlP required
+nnoremap <C-b> :CtrlPMRU<CR>
 
 " get rid of highlight search
 nnoremap \\ :nohlsearch<CR>
