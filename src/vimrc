@@ -178,6 +178,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 
+" Buftabline required ------------------------------------------------
+
+let g:buftabline_indicators = 1
+
+
 " Load local config --------------------------------------------------
 
 function ReadRCOnPath(target_path)
