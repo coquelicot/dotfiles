@@ -1,7 +1,8 @@
 # Author: fcrh
 # Email: coquelicot1117@gmail.com
 
-# settings {{{
+# settings {{{ ---------------------------------------------------------------
+
 # emacs style, not vi
 set +o vi
 set -o emacs
@@ -42,15 +43,16 @@ shopt -s lithist
 shopt -s mailwarn
 shopt -s gnu_errfmt
 shopt -s no_empty_cmd_completion
+
 # }}}
 
-
-# variables
+# variables {{{ --------------------------------------------------------------
 
 export EDITOR="vim"
 
+# }}}
 
-# alias
+# alias {{{ ------------------------------------------------------------------
 
 alias ll="ls -hFlG"
 alias la="ls -hFlAG"
@@ -59,8 +61,44 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 
+# }}}
 
-# handy version of popd/pushd
+# prompt {{{ -----------------------------------------------------------------
+
+export PROMPT_COMMAND=__generate_prompt
+
+CLR_HOST="0;31m"
+CLR_USER="0;35m"
+CLR_PATH="0;36m"
+CLR_GIT="0;33m"
+CLR_FAIL="1;31m"
+PTCRL_VIM="0;32m"
+
+__generate_prompt() {
+
+    local ret_code=$?
+    local git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+    PS1="\[\e[${CLR_HOST}\]\h \[\e[${CLR_USER}\]\u \[\e[${CLR_PATH}\]{ \w }"
+
+    if [[ $git_branch != "" ]]; then
+        PS1+=" \[\e[${CLR_GIT}\]${git_branch}";
+    fi
+    if [[ $ret_code -ne 0 ]]; then
+        PS1+=" \[\e[${CLR_FAIL}\](${ret_code})";
+    fi
+
+    if [[ $IN_VIM == "yes" ]]; then
+        PS1+=" \[\e[${PTCRL_VIM}\]vi\\$\[\e[m\] ";
+    else
+        PS1+="\[\e[m\] \\$ ";
+    fi
+
+}
+
+# }}}
+
+# functions {{{ --------------------------------------------------------------
 
 function pd {
     if [[ $# -eq 0 ]]; then
@@ -72,41 +110,10 @@ function pd {
     fi
 }
 
+# }}}
 
-# prompt
-
-export PROMPT_COMMAND=__generate_prompt
-
-PTCLR_HOST="0;31m"
-PTCLR_USER="0;35m"
-PTCLR_PATH="0;36m"
-PTCLR_GIT="0;33m"
-PTCLR_FAIL="1;31m"
-PTCRL_VIM="0;32m"
-
-__generate_prompt() {
-
-    local ret_code=$?
-    local git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-
-    PS1="\[\e[${PTCLR_HOST}\]\h \[\e[${PTCLR_USER}\]\u \[\e[${PTCLR_PATH}\]{ \w }"
-
-    if [[ $git_branch != "" ]]; then
-        PS1+=" \[\e[${PTCLR_GIT}\]${git_branch}";
-    fi
-    if [[ $ret_code -ne 0 ]]; then
-        PS1+=" \[\e[${PTCLR_FAIL}\](${ret_code})";
-    fi
-
-    if [[ $IN_VIM == "yes" ]]; then
-        PS1+=" \[\e[${PTCRL_VIM}\]vi\\$\[\e[m\] ";
-    else
-        PS1+="\[\e[m\] \\$ ";
-    fi
-
-}
-
-
-# machine specific rc
+# extra rcs {{{ --------------------------------------------------------------
 
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local";
+
+# }}}
