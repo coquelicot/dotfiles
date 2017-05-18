@@ -1,11 +1,7 @@
 " Author: fcrh
 " Email: coquelicot1117@gmail.com
 
-" In vim env
-let $IN_VIM = 'yes'
-
-
-" Vundle -------------------------------------------------------------
+" Vundle {{{ -----------------------------------------------------------------
 
 " Start
 filetype off
@@ -26,8 +22,9 @@ Plugin 'ap/vim-buftabline'
 call vundle#end()
 filetype plugin indent on
 
+" }}}
 
-" Basic setting ------------------------------------------------------
+" Basic setting {{{ ----------------------------------------------------------
 
 syntax on
 colorscheme elflord
@@ -84,8 +81,9 @@ set backupdir=~/.vim/backup//
 set undodir=~/.vim/undo//
 set dir=~/.vim/swp//
 
+" }}}
 
-" Keycodes -----------------------------------------------------------
+" Keycodes {{{ ---------------------------------------------------------------
 
 " shortten the timeout of keycode
 set ttimeoutlen=150
@@ -94,8 +92,9 @@ set ttimeoutlen=150
 execute "set <f13>=\<ESC>[200~"
 execute "set <f14>=\<ESC>[201~"
 
+" }}}
 
-" Mapping ------------------------------------------------------------
+" Mapping {{{ ----------------------------------------------------------------
 
 nnoremap \s :shell<CR>
 nnoremap \p :!python<CR>
@@ -139,8 +138,9 @@ nnoremap 0 ^
 vnoremap ^ 0
 vnoremap 0 ^
 
+" }}}
 
-" Paste --------------------------------------------------------------
+" Paste {{{ ------------------------------------------------------------------
 " http://stackoverflow.com/questions/5585129
 
 if &term =~ "xterm.*" || exists("$TMUX")
@@ -168,8 +168,9 @@ if &term =~ "xterm.*" || exists("$TMUX")
 
 endif
 
+" }}}
 
-" Specialization -----------------------------------------------------
+" Specialization {{{ ---------------------------------------------------------
 
 " c,cpp
 autocmd FileType c,cpp nnoremap \r :!./%<<CR>
@@ -184,8 +185,9 @@ autocmd Filetype htmldjango,html,css,javascript set shiftwidth=2
 autocmd Filetype htmldjango,html,css,javascript set tabstop=2
 autocmd Filetype htmldjango,html,css,javascript set softtabstop=2
 
+" }}}
 
-" Setup backup/undo dir ----------------------------------------------
+" Setup backup/undo dir  {{{ -------------------------------------------------
 
 function CreateDirs(dirs)
     for dir in split(a:dirs, ',')
@@ -201,8 +203,9 @@ call CreateDirs(&backupdir)
 call CreateDirs(&undodir)
 call CreateDirs(&directory)
 
+" }}}
 
-" Syntastic required -------------------------------------------------
+" Syntastic required {{{ -----------------------------------------------------
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -216,22 +219,34 @@ let g:syntastic_check_on_wq = 0
 " eslint required
 let g:syntastic_javascript_checkers = ['eslint']
 
+" }}}
 
-" Buftabline required ------------------------------------------------
+" Buftabline required {{{ ----------------------------------------------------
 
 let g:buftabline_indicators = 1
 
+" }}}
 
-" Load local config --------------------------------------------------
+" Load local config {{{ ------------------------------------------------------
 
 function ReadRCOnPath(target_path)
     let current_path = ''
     for dir in split(a:target_path, '/')
         let current_path = current_path . '/' . dir
         let file = current_path . '/' . '.vimrc.local'
-        if filereadable(file) && empty(matchstr(getfperm(file), '^r.-------$')) == 0
+        if filereadable(file) &&
+                \ empty(matchstr(getfperm(file), '^r.-------$')) == 0
             execute 'source ' . file
         endif
     endfor
 endfunction
 call ReadRCOnPath(getcwd())
+
+" }}}
+
+" Misc {{{ -------------------------------------------------------------------
+
+" In vim env
+let $IN_VIM = 'yes'
+
+" }}}
