@@ -85,6 +85,16 @@ set undodir=~/.vim/undo//
 set dir=~/.vim/swp//
 
 
+" Keycodes -----------------------------------------------------------
+
+" shortten the timeout of keycode
+set ttimeoutlen=150
+
+" for paste
+execute "set <f13>=\<ESC>[200~"
+execute "set <f14>=\<ESC>[201~"
+
+
 " Mapping ------------------------------------------------------------
 
 nnoremap \s :shell<CR>
@@ -128,6 +138,35 @@ nnoremap ^ 0
 nnoremap 0 ^
 vnoremap ^ 0
 vnoremap 0 ^
+
+
+" Paste --------------------------------------------------------------
+" http://stackoverflow.com/questions/5585129
+
+if &term =~ "xterm.*" || exists("$TMUX")
+
+    " enable/disable bracketed paste mode
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+
+    function! XTermPasteBegin(ret)
+        " stop paste mode when bracketed end
+        set pastetoggle=<f14>
+        " start paste mode
+        set paste
+        " extra command code to which it'll be mapped
+        return a:ret
+    endfunction
+
+    map <expr> <f13> XTermPasteBegin("i")
+    imap <expr> <f13> XTermPasteBegin("")
+    vmap <expr> <f13> XTermPasteBegin("c")
+
+    " do thing when we're in command mode
+    cmap <f13> <nop>
+    cmap <f14> <nop>
+
+endif
 
 
 " Specialization -----------------------------------------------------
