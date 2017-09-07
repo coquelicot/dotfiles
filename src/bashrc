@@ -67,31 +67,32 @@ alias cp="cp -i"
 
 export PROMPT_COMMAND=__generate_prompt
 
-CLR_HOST="0;31m"
-CLR_USER="0;35m"
-CLR_PATH="0;36m"
-CLR_GIT="0;33m"
-CLR_FAIL="1;31m"
-PTCRL_VIM="0;32m"
+CLR_HOST=$(tput setaf 1)
+CLR_USER=$(tput setaf 5)
+CLR_PATH=$(tput setaf 6)
+CLR_GIT=$(tput setaf 3)
+CLR_FAIL=$(tput setaf 1; tput bold)
+CRL_VIM=$(tput setaf 2)
+CLR_RESET=$(tput sgr0)
 
 __generate_prompt() {
 
     local ret_code=$?
     local git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-    PS1="\[\e[${CLR_HOST}\]\h \[\e[${CLR_USER}\]\u \[\e[${CLR_PATH}\]{ \w }"
+    PS1="\[${CLR_HOST}\]\h \[${CLR_USER}\]\u \[${CLR_PATH}\]{ \w }"
 
     if [[ $git_branch != "" ]]; then
-        PS1+=" \[\e[${CLR_GIT}\]${git_branch}";
+        PS1+=" \[${CLR_GIT}\]${git_branch}";
     fi
     if [[ $ret_code -ne 0 ]]; then
-        PS1+=" \[\e[${CLR_FAIL}\](${ret_code})";
+        PS1+=" \[${CLR_FAIL}\](${ret_code})";
     fi
 
     if [[ $IN_VIM == "yes" ]]; then
-        PS1+=" \[\e[${PTCRL_VIM}\]vi\\$\[\e[m\] ";
+        PS1+=" \[${CRL_VIM}\]vi\\$\[${CLR_RESET}\] ";
     else
-        PS1+="\[\e[m\] \\$ ";
+        PS1+="\[${CLR_RESET}\] \\$ ";
     fi
 
 }
