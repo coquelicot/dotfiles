@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$(cd $(dirname -- "$0") && pwd)
+DIR=$(cd "$(dirname -- "$0")" && pwd)
 SRC_DIR="$DIR/src"
 
 if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
