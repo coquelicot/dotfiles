@@ -82,14 +82,14 @@ __generate_prompt() {
 
     PS1="\[${CLR_HOST}\]\h \[${CLR_USER}\]\u \[${CLR_PATH}\]{ \w }"
 
-    if [[ $git_branch != "" ]]; then
+    if [[ -n "$git_branch" ]]; then
         PS1+=" \[${CLR_GIT}\]${git_branch}";
     fi
     if [[ $ret_code -ne 0 ]]; then
         PS1+=" \[${CLR_FAIL}\](${ret_code})";
     fi
 
-    if [[ $IN_VIM == "yes" ]]; then
+    if [[ "$IN_VIM" == "yes" ]]; then
         PS1+=" \[${CRL_VIM}\]vi\\$\[${CLR_RESET}\] ";
     else
         PS1+="\[${CLR_RESET}\] \\$ ";
@@ -104,7 +104,7 @@ __generate_prompt() {
 function pd {
     if [[ $# -eq 0 ]]; then
         popd >/dev/null 2>/dev/null;
-    elif [[ $# -eq 1 && $1 = "-" ]]; then
+    elif [[ $# -eq 1 && "$1" == "-" ]]; then
         pushd >/dev/null 2>/dev/null;
     else
         pushd $@ >/dev/null;
