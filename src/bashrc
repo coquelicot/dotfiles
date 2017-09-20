@@ -115,6 +115,8 @@ function pd {
 
 # extra rcs {{{ --------------------------------------------------------------
 
-[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local";
+if [ -f "$HOME/.bashrc.local" ]; then
+    . "$HOME/.bashrc.local";
+fi
 
 # }}}
