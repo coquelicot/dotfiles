@@ -89,8 +89,9 @@ set dir=~/.vim/swp//
 " shortten the timeout of keycode
 set ttimeoutlen=150
 
-" for paste
+" bracketed paste prefix
 execute "set <f13>=\<ESC>[200~"
+" bracketed paste suffix
 execute "set <f14>=\<ESC>[201~"
 
 " }}}
@@ -163,7 +164,7 @@ if &term =~ "xterm.*" || exists("$TMUX")
     imap <expr> <f13> XTermPasteBegin("")
     vmap <expr> <f13> XTermPasteBegin("c")
 
-    " do thing when we're in command mode
+    " do nothing when we're in command mode
     cmap <f13> <nop>
     cmap <f14> <nop>
 
