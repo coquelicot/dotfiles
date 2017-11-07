@@ -86,6 +86,9 @@ set dir=~/.vim/swp//
 
 " Keycodes {{{ ---------------------------------------------------------------
 
+" remap leader
+let mapleader=" "
+
 " shortten the timeout of keycode
 set ttimeoutlen=150
 
@@ -98,21 +101,21 @@ execute "set <f14>=\<ESC>[201~"
 
 " Mapping {{{ ----------------------------------------------------------------
 
-nnoremap \s :shell<CR>
-nnoremap \p :!python<CR>
-nnoremap \r :!./%<CR>
+nnoremap <LEADER>s :shell<CR>
+nnoremap <LEADER>p :!python<CR>
+nnoremap <LEADER>r :!./%<CR>
 
 " NERDTree required
-nnoremap \f :NERDTreeFocus<CR>
+nnoremap <LEADER>f :NERDTreeFocus<CR>
 
 " Tagbar required
-nnoremap \t :TagbarToggle<CR>
+nnoremap <LEADER>t :TagbarToggle<CR>
 
 " CtrlP required
 nnoremap <C-b> :CtrlPMRU<CR>
 
 " get rid of highlight search
-nnoremap \\ :nohlsearch<CR>
+nnoremap <LEADER><LEADER> :nohlsearch<CR>
 
 " reselect
 vnoremap > >gv

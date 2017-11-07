@@ -3,6 +3,9 @@
 
 # settings {{{ ---------------------------------------------------------------
 
+# default TERM
+export TERM=${TERM:-xterm-256color}
+
 # emacs style, not vi
 set +o vi
 set -o emacs
@@ -86,7 +89,7 @@ __generate_prompt() {
         PS1+=" \[${CLR_GIT}\]${git_branch}";
     fi
     if [[ $ret_code -ne 0 ]]; then
-        PS1+=" \[${CLR_FAIL}\](${ret_code})";
+        PS1+=" \[${CLR_FAIL}\](${ret_code})${CLR_RESET}";
     fi
 
     if [[ "$IN_VIM" == "yes" ]]; then
