@@ -57,8 +57,8 @@ export EDITOR="vim"
 
 # alias {{{ ------------------------------------------------------------------
 
-alias ll="ls -hFlG"
-alias la="ls -hFlAG"
+alias ll="ls -hFl"
+alias la="ls -hFlA"
 
 alias rm="rm -i"
 alias mv="mv -i"

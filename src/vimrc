@@ -133,8 +133,10 @@ nnoremap <C-h> :bprev<CR>
 nnoremap <C-d> :bd<CR>
 
 " clear screen
-nnoremap \l :redraw!<CR>
+nnoremap <LEADER>l :redraw!<CR>
 
+" Ctrl-C
+nnoremap <C-c> :q<CR>
 
 " https://github.com/peter50216/dotfiles/blob/master/config/vimrc
 inoremap jk <ESC>
