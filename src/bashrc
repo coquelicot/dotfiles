@@ -75,13 +75,15 @@ CLR_USER=$(tput setaf 5)
 CLR_PATH=$(tput setaf 6)
 CLR_GIT=$(tput setaf 3)
 CLR_FAIL=$(tput setaf 1; tput bold)
-CRL_VIM=$(tput setaf 2)
+CLR_VIM=$(tput setaf 2)
 CLR_RESET=$(tput sgr0)
 
 __generate_prompt() {
 
     local ret_code=$?
     local git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+    # header
 
     PS1="\[${CLR_HOST}\]\h \[${CLR_USER}\]\u \[${CLR_PATH}\]{ \w }"
 
@@ -92,11 +94,18 @@ __generate_prompt() {
         PS1+=" \[${CLR_FAIL}\](${ret_code})${CLR_RESET}";
     fi
 
-    if [[ "$IN_VIM" == "yes" ]]; then
-        PS1+=" \[${CRL_VIM}\]vi\\$\[${CLR_RESET}\] ";
-    else
-        PS1+="\[${CLR_RESET}\] \\$ ";
+    PS1+="\n";
+
+    # body
+
+    if [[ -n "$VILVL" ]]; then
+        PS1+=" \[${CLR_VIM}\]vi";
+        if [[ "$VILVL" -ne "1" ]]; then
+            PS1+="$VILVL";
+        fi
     fi
+
+    PS1+=" \[${CLR_RESET}\]\\$ ";
 
 }
 

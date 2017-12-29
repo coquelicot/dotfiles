@@ -254,6 +254,10 @@ call ReadRCOnPath(getcwd())
 " Misc {{{ -------------------------------------------------------------------
 
 " In vim env
-let $IN_VIM = 'yes'
+if exists("$VILVL")
+    let $VILVL = $VILVL + 1
+else
+    let $VILVL = 1
+endif
 
 " }}}
