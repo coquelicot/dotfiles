@@ -128,9 +128,17 @@ nnoremap j gj
 nnoremap k gk
 
 " buffer helper
+function! BufferClose()
+    " close whole vim if this is the last buffer
+    if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        return ":q\n"
+    else
+        return ":bd\n"
+    endif
+endfunction
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-h> :bprev<CR>
-nnoremap <C-d> :bd<CR>
+nnoremap <expr> <C-d> BufferClose()
 
 " clear screen
 nnoremap <LEADER>l :redraw!<CR>
