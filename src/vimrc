@@ -117,6 +117,9 @@ nnoremap <C-b> :CtrlPMRU<CR>
 " get rid of highlight search
 nnoremap <LEADER><LEADER> :nohlsearch<CR>
 
+" ctags helper
+nnoremap F g<C-]>
+
 " reselect
 vnoremap > >gv
 vnoremap < <gv
