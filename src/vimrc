@@ -118,7 +118,7 @@ nnoremap <C-b> :CtrlPMRU<CR>
 nnoremap <LEADER><LEADER> :nohlsearch<CR>
 
 " ctags helper
-nnoremap F g<C-]>
+nnoremap <LEADER>F g<C-]>
 
 " reselect
 vnoremap > >gv
