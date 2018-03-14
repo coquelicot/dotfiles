@@ -8,7 +8,7 @@ import sys
 
 KEY_LEN = 32
 KEY_FILE = os.path.expanduser("~/.vim/.lvimrc_key")
-DIGEST_PREFIX = '" lvim-digest: '
+DIGEST_PREFIX = '" lvimrc-digest: '
 
 
 def read_key(key_file=KEY_FILE):
