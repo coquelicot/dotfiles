@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import base64
 import hashlib
 import hmac
 import os
@@ -15,13 +14,13 @@ def read_key(key_file=KEY_FILE):
 
     # if we don't have such file, generate one
     if not os.path.exists(key_file):
-        fd = os.open(key_file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0600)
+        fd = os.open(key_file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
         with os.fdopen(fd, "w") as fout:
-            key = base64.b64encode(os.urandom(KEY_LEN))
+            key = os.urandom(KEY_LEN).encode('hex')
             fout.write(key)
 
     with open(key_file, "r") as fin:
-        key = base64.b64decode(fin.read().strip())
+        key = fin.read().strip().decode('hex')
         assert len(key) == KEY_LEN
         return key
 
