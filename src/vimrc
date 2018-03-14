@@ -12,7 +12,6 @@ endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
