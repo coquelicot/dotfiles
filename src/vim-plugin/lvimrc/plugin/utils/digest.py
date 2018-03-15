@@ -79,7 +79,7 @@ def cmd_update_rc(file):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("cmd", help="verify/update")
+    parser.add_argument("cmd", choices=["verify", "update"], help="command")
     parser.add_argument("file", nargs="?", help="target file")
     options = parser.parse_args()
 
@@ -88,4 +88,4 @@ if __name__ == "__main__":
     elif options.cmd == "update":
         cmd_update_rc(options.file)
     else:
-        sys.stderr.write("Unknown cmd: {}\n".format(options.cmd))
+        assert False
