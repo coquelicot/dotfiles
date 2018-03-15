@@ -37,5 +37,8 @@ function! LVimrcUpdateSelfDigest()
     execute ':%!' . s:lvimrc_util_path . ' update'
 endfunction
 
-autocmd BufWritePre *lvimrc call LVimrcUpdateSelfDigest()
-call LVimrcLoadRcsOnPath()
+
+augroup LVimrc
+    autocmd BufWritePre *lvimrc call LVimrcUpdateSelfDigest()
+    autocmd VimEnter * call LVimrcLoadRcsOnPath()
+augroup END
