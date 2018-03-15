@@ -22,11 +22,11 @@ function! LVimrcLoadRcs(rcs)
     endfor
 endfunction
 
-function! LVimrcLoadRcsOnPath()
+function! LVimrcLoadRcsOnPath(path)
     let current_path = ''
     call LVimrcLoadRcs(glob('/*lvimrc'))
     call LVimrcLoadRcs(glob('/.*lvimrc'))
-    for dir in split(getcwd(), '/')
+    for dir in split(a:path, '/')
         let current_path = current_path . '/' . dir
         call LVimrcLoadRcs(glob(current_path . '/*lvimrc'))
         call LVimrcLoadRcs(glob(current_path . '/.*lvimrc'))
@@ -39,6 +39,7 @@ endfunction
 
 
 augroup LVimrc
+    autocmd!
     autocmd BufWritePre *lvimrc call LVimrcUpdateSelfDigest()
-    autocmd VimEnter * call LVimrcLoadRcsOnPath()
+    autocmd BufWinEnter * call LVimrcLoadRcsOnPath(expand('%:p:h'))
 augroup END
