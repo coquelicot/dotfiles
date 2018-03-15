@@ -19,9 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'mbbill/undotree'
-" Local plugins
-let local_plugin_path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/vim-plugin/'
-Plug local_plugin_path . 'lvimrc'
+Plug 'coquelicot/local-vimrc'
 call plug#end()
 
 " }}}
