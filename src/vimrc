@@ -199,17 +199,17 @@ endif
 " Specialization {{{ ---------------------------------------------------------
 
 " c,cpp
-autocmd FileType c,cpp nnoremap <LEADER>r :!./%<<CR>
-autocmd Filetype c,cpp set cindent
-autocmd Filetype c,cpp set makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
+autocmd FileType c,cpp nnoremap <buffer> <LEADER>r :!./%<<CR>
+autocmd Filetype c,cpp setlocal cindent
+autocmd Filetype c,cpp setlocal makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
 
 " makefile
-autocmd Filetype make set noexpandtab
+autocmd Filetype make setlocal noexpandtab
 
 " html,css,js
-autocmd Filetype htmldjango,html,css,javascript set shiftwidth=2
-autocmd Filetype htmldjango,html,css,javascript set tabstop=2
-autocmd Filetype htmldjango,html,css,javascript set softtabstop=2
+autocmd Filetype htmldjango,html,css,javascript setlocal shiftwidth=2
+autocmd Filetype htmldjango,html,css,javascript setlocal tabstop=2
+autocmd Filetype htmldjango,html,css,javascript setlocal softtabstop=2
 
 " }}}
 
