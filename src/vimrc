@@ -18,6 +18,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
+Plug 'mbbill/undotree'
 " Local plugins
 let local_plugin_path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/vim-plugin/'
 Plug local_plugin_path . 'lvimrc'
@@ -115,8 +116,16 @@ nnoremap <LEADER>t :TagbarToggle<CR>
 " CtrlP required
 nnoremap <C-b> :CtrlPMRU<CR>
 
+" Undotree
+nnoremap <LEADER>u :UndotreeToggle<CR>
+
 " get rid of highlight search
 nnoremap <LEADER><LEADER> :nohlsearch<CR>
+
+" search selected text
+vnoremap * y/<C-r>"<CR>
+" replace selected text
+vnoremap <C-r> y:%s/<C-r>"/
 
 " ctags helper
 nnoremap <LEADER>F g<C-]>
@@ -192,8 +201,8 @@ endif
 " Specialization {{{ ---------------------------------------------------------
 
 " c,cpp
-autocmd FileType c,cpp nnoremap \r :!./%<<CR>
-autocmd Filetype c,cpp set cin
+autocmd FileType c,cpp nnoremap <LEADER>r :!./%<<CR>
+autocmd Filetype c,cpp set cindent
 autocmd Filetype c,cpp set makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
 
 " makefile
