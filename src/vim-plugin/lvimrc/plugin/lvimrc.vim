@@ -34,9 +34,8 @@ function! LVimrcLoadRcsOnPath()
 endfunction
 
 function! LVimrcUpdateSelfDigest()
-    call LVimrcUpdateDigest(expand('%:p'))
-    edit
+    execute ':%!' . s:lvimrc_util_path . ' update'
 endfunction
 
-autocmd BufWritePost *lvimrc call LVimrcUpdateSelfDigest()
+autocmd BufWritePre *lvimrc call LVimrcUpdateSelfDigest()
 call LVimrcLoadRcsOnPath()

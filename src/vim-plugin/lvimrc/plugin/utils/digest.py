@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import argparse
 import hashlib
 import hmac
 import os
@@ -16,19 +17,22 @@ def read_key(key_file=KEY_FILE):
     if not os.path.exists(key_file):
         fd = os.open(key_file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
         with os.fdopen(fd, "w") as fout:
-            key = os.urandom(KEY_LEN).encode('hex')
+            key = os.urandom(KEY_LEN).encode("hex")
             fout.write(key)
 
     with open(key_file, "r") as fin:
-        key = fin.read().strip().decode('hex')
+        key = fin.read().strip().decode("hex")
         assert len(key) == KEY_LEN
         return key
 
 
-def read_rc(file):
+def read_rc(file=None):
 
-    with open(file, "r") as fin:
-        lines = fin.readlines()
+    if file is None:
+        lines = sys.stdin.readlines()
+    else:
+        with open(file, "r") as fin:
+            lines = fin.readlines()
     
     # extract digest from last line
     if len(lines) > 0 and lines[-1].startswith(DIGEST_PREFIX):
@@ -61,24 +65,27 @@ def cmd_update_rc(file):
     content, _ = read_rc(file)
     if content != "" and content[-1] != "\n":
         content += "\n"
-    digest = calc_digest(read_key(), content)
 
-    with open(file, "w") as fout:
-        fout.write(content + DIGEST_PREFIX + digest)
+    digest = calc_digest(read_key(), content)
+    content += DIGEST_PREFIX + digest + "\n"
+
+    if file:
+        with open(file, "w") as fout:
+            fout.write(content)
+    else:
+        sys.stdout.write(content)
 
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 3:
-        sys.stderr.write("Usage: {} <cmd> <lvimrc_file>\n".format(sys.argv[0]))
-        sys.exit(-1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("cmd", help="verify/update")
+    parser.add_argument("file", nargs="?", help="target file")
+    options = parser.parse_args()
 
-    cmd = sys.argv[1]
-    file = sys.argv[2]
-
-    if cmd == "verify":
-        cmd_verify_rc(file)
-    elif cmd == "update":
-        cmd_update_rc(file)
+    if options.cmd == "verify":
+        cmd_verify_rc(options.file)
+    elif options.cmd == "update":
+        cmd_update_rc(options.file)
     else:
-        sys.stderr.write("Unknown cmd: {}".format(cmd))
+        sys.stderr.write("Unknown cmd: {}\n".format(options.cmd))
