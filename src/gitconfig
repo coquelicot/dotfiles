@@ -30,6 +30,7 @@
 	br = branch
 	unstage = reset HEAD --
 	dc = diff --cached
+	d = diff
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 [include]
 	path = ~/.gitconfig.local
