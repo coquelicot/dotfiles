@@ -115,7 +115,7 @@ nnoremap <LEADER>t :TagbarToggle<CR>
 nnoremap <C-b> :CtrlPMRU<CR>
 
 " Undotree
-nnoremap <LEADER>u :UndotreeToggle<CR>
+nnoremap <LEADER>u :UndotreeToggle<CR>:UndotreeFocus<CR>
 
 " get rid of highlight search
 nnoremap <LEADER><LEADER> :nohlsearch<CR>
