@@ -6,6 +6,9 @@
 # default TERM
 export TERM=${TERM:-xterm-256color}
 
+# terminal setting
+stty -ixon
+
 # emacs style, not vi
 set +o vi
 set -o emacs

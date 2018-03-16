@@ -184,13 +184,13 @@ if &term =~ "xterm.*" || exists("$TMUX")
         return a:ret
     endfunction
 
-    map <expr> <f13> XTermPasteBegin("i")
-    imap <expr> <f13> XTermPasteBegin("")
-    vmap <expr> <f13> XTermPasteBegin("c")
+    nnoremap <expr> <f13> XTermPasteBegin("i")
+    inoremap <expr> <f13> XTermPasteBegin("")
+    vnoremap <expr> <f13> XTermPasteBegin("c")
 
     " do nothing when we're in command mode
-    cmap <f13> <nop>
-    cmap <f14> <nop>
+    cnoremap <f13> <nop>
+    cnoremap <f14> <nop>
 
 endif
 
