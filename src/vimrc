@@ -20,6 +20,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'mbbill/undotree'
 Plug 'coquelicot/local-vimrc'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " }}}
@@ -252,6 +253,13 @@ let g:syntastic_javascript_checkers = ['eslint']
 " Buftabline required {{{ ----------------------------------------------------
 
 let g:buftabline_indicators = 1
+
+" }}}
+
+" GitGutter required {{{ -----------------------------------------------------
+
+set updatetime=00
+set signcolumn=yes
 
 " }}}
 
