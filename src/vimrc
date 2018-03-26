@@ -258,7 +258,7 @@ let g:buftabline_indicators = 1
 
 " GitGutter required {{{ -----------------------------------------------------
 
-set updatetime=00
+set updatetime=200
 set signcolumn=yes
 
 " }}}
