@@ -207,7 +207,7 @@ autocmd Filetype c,cpp setlocal makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
 
 " rust
 autocmd FileType rust nnoremap <buffer> <LEADER>r :!./%<<CR>
-autocmd Filetype c,cpp setlocal makeprg=rustc\ %\ -o\ %<
+autocmd Filetype rust setlocal makeprg=rustc\ %\ -o\ %<
 
 " makefile
 autocmd Filetype make setlocal noexpandtab
