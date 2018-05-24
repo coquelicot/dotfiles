@@ -62,6 +62,7 @@ export EDITOR="vim"
 
 alias ll="ls -hFl"
 alias la="ls -hFlA"
+alias l="ls -hFl"
 
 alias rm="rm -i"
 alias mv="mv -i"
