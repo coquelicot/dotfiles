@@ -169,6 +169,9 @@ nnoremap 0 ^
 vnoremap ^ 0
 vnoremap 0 ^
 
+" GCP's console is not friendly to ESC... Has to find a way out in visual mode
+vnoremap q <ESC>
+
 " }}}
 
 " Paste {{{ ------------------------------------------------------------------
