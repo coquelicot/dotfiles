@@ -109,17 +109,19 @@ nnoremap <LEADER>s :shell<CR>
 nnoremap <LEADER>p :!python<CR>
 nnoremap <LEADER>r :!./%<CR>
 
-" NERDTree required
-nnoremap <LEADER>f :NERDTreeFocus<CR>
-
-" Tagbar required
+" Tagbar
 nnoremap <LEADER>t :TagbarToggle<CR>
 
-" CtrlP required
+" CtrlP
 nnoremap <C-b> :CtrlPMRU<CR>
 
+" NERDTree
+" we'll need to close Undotree first as they'll conflict
+nnoremap <LEADER>f :UndotreeHide<CR>:NERDTreeToggle<CR>
+
 " Undotree
-nnoremap <LEADER>u :UndotreeToggle<CR>:UndotreeFocus<CR>
+" we'll need to close NERDTree first as they'll conflict
+nnoremap <LEADER>u :NERDTreeClose<CR>:UndotreeToggle<CR>:UndotreeFocus<CR>
 
 " get rid of highlight search
 nnoremap <LEADER><LEADER> :nohlsearch<CR>
