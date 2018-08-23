@@ -212,7 +212,7 @@ endif
 " c,cpp
 autocmd FileType c,cpp nnoremap <buffer> <LEADER>r :!./%<<CR>
 autocmd Filetype c,cpp setlocal cindent
-autocmd Filetype c,cpp setlocal makeprg=g++\ -O2\ -std=c++11\ %\ -o\ %<
+autocmd Filetype c,cpp setlocal makeprg=g++\ -O2\ -std=c++14\ %\ -o\ %<
 
 " rust
 autocmd FileType rust nnoremap <buffer> <LEADER>r :!./%<<CR>
