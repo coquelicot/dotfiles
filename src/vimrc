@@ -23,6 +23,7 @@ Plug 'mbbill/undotree'
 Plug 'coquelicot/local-vimrc'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'Glench/Vim-Jinja2-Syntax'
 call plug#end()
 
 " }}}
