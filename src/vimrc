@@ -140,6 +140,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 nnoremap ; :
+vnoremap ; :
 
 " move to next/previous row instead of line
 nnoremap j gj
