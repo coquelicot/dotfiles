@@ -111,7 +111,7 @@ __generate_prompt() {
         fi
     fi
 
-    PS1+=" \[${CLR_RESET}\]\\$ ";
+    PS1+="\[${CLR_RESET}\] » ";
 
 }
 
