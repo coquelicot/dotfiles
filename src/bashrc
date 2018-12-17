@@ -135,8 +135,8 @@ function pd {
 # set up extra tools {{{ -----------------------------------------------------
 
 # auto jump
-[[ -s /home/fcrh/.autojump/etc/profile.d/autojump.sh ]] && \
-    source /home/fcrh/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && \
+    source ~/.autojump/etc/profile.d/autojump.sh
 
 # }}}
 
