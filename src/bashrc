@@ -76,6 +76,7 @@ alias v="vim"
 
 export PROMPT_COMMAND=__generate_prompt
 
+CLR_TIME=$(tput setaf 4)
 CLR_HOST=$(tput setaf 1)
 CLR_USER=$(tput setaf 5)
 CLR_PATH=$(tput setaf 6)
@@ -91,7 +92,7 @@ __generate_prompt() {
 
     # header
 
-    PS1="\[${CLR_HOST}\]\h \[${CLR_USER}\]\u \[${CLR_PATH}\]{ \w }"
+    PS1="\[${CLR_TIME}\][\t] \[${CLR_HOST}\]\h \[${CLR_USER}\]\u \[${CLR_PATH}\]{ \w }"
 
     if [[ -n "$git_branch" ]]; then
         PS1+=" \[${CLR_GIT}\]${git_branch}";
