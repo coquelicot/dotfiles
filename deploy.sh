@@ -25,3 +25,8 @@ if [ "`git config -f "$GIT_CFG" --get core.pager`" != "$GIT_PAGER" ]; then
     git config -f "$GIT_CFG" --unset-all core.pager
     git config -f "$GIT_CFG" --add core.pager "$GIT_PAGER"
 fi
+
+# set up autojump
+
+cd $SRC_DIR/autojump
+./install.py

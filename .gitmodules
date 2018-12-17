@@ -1,3 +1,6 @@
 [submodule "src/diff-so-fancy"]
 	path = src/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy
+[submodule "src/autojump"]
+	path = src/autojump
+	url = https://github.com/wting/autojump
