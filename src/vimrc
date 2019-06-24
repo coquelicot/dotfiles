@@ -17,7 +17,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'mbbill/undotree'
 Plug 'coquelicot/local-vimrc'
@@ -114,7 +114,7 @@ nnoremap <LEADER>r :!./%<CR>
 nnoremap <LEADER>t :TagbarToggle<CR>
 
 " CtrlP
-nnoremap <C-b> :CtrlPMRU<CR>
+"nnoremap <C-b> :CtrlPMRU<CR>
 
 " NERDTree
 " we'll need to close Undotree first as they'll conflict
