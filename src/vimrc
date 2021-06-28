@@ -113,9 +113,6 @@ nnoremap <LEADER>r :!./%<CR>
 " Tagbar
 nnoremap <LEADER>t :TagbarToggle<CR>
 
-" CtrlP
-nnoremap <LEADER>b :CtrlPMRU<CR>
-
 " NERDTree
 " we'll need to close Undotree first as they'll conflict
 nnoremap <LEADER>f :UndotreeHide<CR>:NERDTreeToggle<CR>
